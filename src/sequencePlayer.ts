@@ -67,7 +67,6 @@ export default class SequencePlayer {
         this.context = this.canvas.getContext("2d") as CanvasRenderingContext2D
         this.onFinish = onFinish
         this.prefixName = prefixName
-
         this.initPlayer(sequenceJSON, sequenceIMG)
 
 
@@ -78,8 +77,8 @@ export default class SequencePlayer {
         this.sequenceIndex = Object.keys(frames).length;
         for (var i = 0; i < this.sequenceIndex; i++) {
             // 根据图片命名读取数据，“prefixName”可以根据序列帧实际名称由外部传入
+            // 另外图片命名请以下标0开始,否则会报错
             const item = frames[`${this.prefixName}${i}.png`]
-
             const canvas = document.createElement('canvas');
             canvas.width = item.sourceSize.w
             canvas.height = item.sourceSize.h
