@@ -4,12 +4,9 @@ import sequenceJSON from './assets/spritesheetJSON.json'
 import sequenceIMG from './assets/spritesheet.png'
 import { imageLoader } from './imageLoader'
 
-(function () {
-
-})()
 const app = document.getElementById("app");
 if (app) {
-    app.innerHTML = "<h1>Hello, TypeScript and HTML!</h1>";
+    app.innerHTML = "<h1>Hello, Click the button to preview the animation</h1>";
 }
 
 (function () {
@@ -31,9 +28,6 @@ if (app) {
             },
             prefixName: 'red_'
         })
-        // sequencePlayer().then(function () {
-        //     console.log('完啦？？');
-        // })
     })
 
     startBtn?.addEventListener('click', function () {

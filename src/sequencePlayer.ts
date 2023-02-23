@@ -79,14 +79,16 @@ export default class SequencePlayer {
         for (var i = 0; i < this.sequenceIndex; i++) {
             // 根据图片命名读取数据，“prefixName”可以根据序列帧实际名称由外部传入
             const item = frames[`${this.prefixName}${i}.png`]
-            console.log(item, '<===item');
+
             const canvas = document.createElement('canvas');
             canvas.width = item.sourceSize.w
             canvas.height = item.sourceSize.h
             const ctx = canvas.getContext('2d') as CanvasRenderingContext2D
+
             ctx.drawImage(sequenceIMG as HTMLImageElement, item.frame.x, item.frame.y, item.frame.w, item.frame.h, item.spriteSourceSize.x, item.spriteSourceSize.y, item.spriteSourceSize.w, item.spriteSourceSize.h)
 
             this.frames.push(canvas)
+
         }
     }
 
@@ -121,7 +123,6 @@ export default class SequencePlayer {
     }
 
     continue (): boolean {
-        console.log(this.playState, "<==this.playState ");
         if (this.playState !== PlayStateType.Playing) {
             this.playState = PlayStateType.Playing
             this.handleDraw()
